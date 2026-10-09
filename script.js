@@ -1,14 +1,34 @@
-const copyButton = document.querySelector("[data-copy]");
+const copyButtons = document.querySelectorAll("[data-copy]");
 const copyStatus = document.querySelector("[data-copy-status]");
 const contract = document.querySelector("#contract");
 const header = document.querySelector("[data-header]");
 const config = window.SITE_CONFIG || {};
 
-const hasRealValue = (value) => Boolean(value && value.trim() && !value.includes("PASTE_"));
+const hasRealValue = (value) => {
+  if (typeof value !== "string") return value !== null && value !== undefined;
+
+  const normalized = value.trim().toUpperCase();
+  return Boolean(
+    normalized &&
+      normalized !== "TBA" &&
+      normalized !== "NOT ANNOUNCED" &&
+      !normalized.includes("PASTE_")
+  );
+};
+
+const isSafeUrl = (value) => {
+  if (!hasRealValue(value)) return false;
+
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" || url.protocol === "http:";
+  } catch {
+    return false;
+  }
+};
 
 document.querySelectorAll("[data-config]").forEach((element) => {
-  const key = element.dataset.config;
-  const value = config[key];
+  const value = config[element.dataset.config];
 
   if (hasRealValue(value)) {
     element.textContent = value;
@@ -16,43 +36,77 @@ document.querySelectorAll("[data-config]").forEach((element) => {
 });
 
 document.querySelectorAll("[data-link]").forEach((element) => {
-  const key = element.dataset.link;
-  const value = config[key];
+  const value = config[element.dataset.link];
 
-  if (hasRealValue(value)) {
+  if (isSafeUrl(value)) {
     element.href = value;
     element.target = "_blank";
-    element.rel = "noreferrer";
+    element.rel = "noopener noreferrer";
+    element.removeAttribute("aria-disabled");
     return;
   }
 
   if (element.classList.contains("mini-link")) {
     element.hidden = true;
+    return;
   }
+
+  element.href = "#token";
+  element.setAttribute("aria-disabled", "true");
+});
+
+document.querySelectorAll(".token-links").forEach((group) => {
+  const activeLinks = group.querySelectorAll(".mini-link:not([hidden])");
+  group.hidden = activeLinks.length === 0;
 });
 
 if (hasRealValue(config.brandLabel)) {
-  document.title = `${config.brandLabel} - Premium Solana Meme`;
+  document.title = `${config.brandLabel} - High-Signal Solana Meme`;
 }
 
-if (!hasRealValue(config.contractAddress) && contract) {
-  contract.textContent = "PASTE_SOL_CONTRACT_ADDRESS_HERE";
+const contractAddress = hasRealValue(config.contractAddress)
+  ? String(config.contractAddress).trim()
+  : "";
+
+if (contract) {
+  contract.textContent = contractAddress || "NOT ANNOUNCED";
+  contract.title = contractAddress || "The official contract has not been announced.";
 }
 
-copyButton?.addEventListener("click", async () => {
-  const value = contract?.textContent?.trim() || "";
+document.body.classList.toggle("is-live", Boolean(contractAddress && isSafeUrl(config.buyUrl)));
 
-  if (!value || value.includes("TBA") || value.includes("PASTE_")) {
-    copyStatus.textContent = "Contract address is not set yet.";
+const setCopyStatus = (message) => {
+  if (!copyStatus) return;
+  copyStatus.textContent = message;
+};
+
+const copyContract = async () => {
+  if (!contractAddress) {
+    setCopyStatus("The official contract has not been announced yet.");
+    document.querySelector("#token")?.scrollIntoView({ behavior: "smooth", block: "center" });
     return;
   }
 
   try {
-    await navigator.clipboard.writeText(value);
-    copyStatus.textContent = "Contract copied.";
+    await navigator.clipboard.writeText(contractAddress);
+    setCopyStatus("Official contract copied.");
   } catch {
-    copyStatus.textContent = "Copy failed. Select the address manually.";
+    const range = document.createRange();
+    range.selectNodeContents(contract);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    setCopyStatus("Contract selected. Copy it from the highlighted text.");
   }
+};
+
+copyButtons.forEach((button) => button.addEventListener("click", copyContract));
+
+document.querySelectorAll("a[aria-disabled='true']").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    document.querySelector("#token")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 });
 
 const updateHeader = () => {

@@ -3,28 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="NULX is a dark luxury Solana meme brand built around signal, restraint, and clean launch transparency."
-    />
+    <meta name="theme-color" content="#050606" />
+    <meta name="description" content="NULX is a high-signal Solana meme asset built around restraint, verification, and a transparent launch." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://exps.shop/" />
+    <meta property="og:title" content="NULX - Null the noise" />
+    <meta property="og:description" content="The official home of NULX on Solana. Verify the contract, launch status, and official links." />
+    <meta property="og:image" content="https://exps.shop/nulx-logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>NULX - High-Signal Solana Meme</title>
+    <link rel="canonical" href="https://exps.shop/" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="nulx-logo.png" as="image" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="status-bar" role="status">
+      <span class="status-indicator" aria-hidden="true"></span>
+      <strong data-config="launchPhase">PRE-LAUNCH</strong>
+      <span data-config="statusMessage">Contract address has not been announced. Trust only links published here.</span>
+    </div>
+
     <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="NULX home">
         <img class="brand-logo" src="nulx-logo.png" alt="" aria-hidden="true" />
         <span data-config="brandLabel">NULX</span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#protocol">Protocol</a>
-        <a href="#launch">Launch</a>
+        <a href="#thesis">Thesis</a>
+        <a href="#how-to-buy">How to buy</a>
         <a href="#token">Token</a>
-        <a href="#faq">FAQ</a>
+        <a href="#safety">Verify</a>
       </nav>
-      <a class="header-action" href="#token">CA</a>
+      <a class="header-action" href="#token">Official CA</a>
     </header>
 
     <main id="top">
@@ -37,178 +48,133 @@
             verify first, and let the chart do the talking.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="#launch" data-link="buyUrl" data-config="primaryCtaLabel">Launch Link TBA</a>
-            <a class="button secondary" href="#token" data-config="secondaryCtaLabel">Copy Contract</a>
+            <a class="button primary" href="#token" data-link="buyUrl" data-config="primaryCtaLabel" data-disabled-link>Buy link after launch</a>
+            <button class="button secondary" type="button" data-copy data-config="secondaryCtaLabel">Copy official CA</button>
           </div>
           <dl class="signal-strip" aria-label="Project snapshot">
-            <div>
-              <dt>Network</dt>
-              <dd data-config="network">Solana</dd>
-            </div>
-            <div>
-              <dt>Pair</dt>
-              <dd data-config="pair">SOL / NULX</dd>
-            </div>
-            <div>
-              <dt>Status</dt>
-              <dd data-config="status">Concept build</dd>
-            </div>
+            <div><dt>Network</dt><dd data-config="network">Solana</dd></div>
+            <div><dt>Launch</dt><dd data-config="launchDate">To be announced</dd></div>
+            <div><dt>Status</dt><dd data-config="status">Mint verified</dd></div>
           </dl>
         </div>
 
-        <div class="hero-visual" aria-label="NULX hero artwork">
+        <div class="hero-visual" aria-label="NULX emblem">
+          <div class="visual-frame" aria-hidden="true"></div>
           <img src="nulx-logo.png" alt="Black titanium NULX emblem with champagne metal and emerald signal light" />
           <div class="terminal-panel" aria-hidden="true">
             <span class="terminal-dot"></span>
-            <span>signal locked / noise nulled</span>
+            <span data-config="terminalMessage">mint verified / trading pending</span>
           </div>
         </div>
       </section>
 
-      <section id="protocol" class="section split-section">
+      <section class="trust-rail" aria-label="Safety notice">
+        <p><strong>Official source.</strong> The verified contract is published here first.</p>
+        <p><strong>No DMs.</strong> Admins will never ask for your seed phrase.</p>
+        <p><strong>Verify first.</strong> Match the full address before trading.</p>
+      </section>
+
+      <section id="thesis" class="section split-section">
         <div class="section-heading">
-          <p class="eyebrow">Brand posture</p>
-          <h2>A meme coin dressed like market infrastructure.</h2>
+          <p class="eyebrow">The NULX thesis</p>
+          <h2>Signal is scarce. Noise is infinite.</h2>
         </div>
         <div class="feature-grid">
-          <article class="feature">
-            <span class="feature-index">01</span>
-            <h3>Dark signal culture</h3>
-            <p>A quieter identity for holders who prefer precision, restraint, and conviction over timeline noise.</p>
-          </article>
-          <article class="feature">
-            <span class="feature-index">02</span>
-            <h3>Transparent launch surface</h3>
-            <p>Contract, liquidity, social links, and chart access stay visible in one place once the mint is live.</p>
-          </article>
-          <article class="feature">
-            <span class="feature-index">03</span>
-            <h3>Luxury terminal design</h3>
-            <p>Black titanium visuals, controlled neon, sharp spacing, and a landing page that feels built, not borrowed.</p>
-          </article>
-          <article class="feature">
-            <span class="feature-index">04</span>
-            <h3>Meme without clutter</h3>
-            <p>The project can still carry humor, but the first impression stays premium enough for serious buyers.</p>
-          </article>
+          <article class="feature"><span class="feature-index">01</span><h3>One verified source</h3><p>The official contract, buy route, chart, and social channels live together on this domain.</p></article>
+          <article class="feature"><span class="feature-index">02</span><h3>Launch transparency</h3><p>Supply, decimals, authority status, and liquidity information are published before promotion begins.</p></article>
+          <article class="feature"><span class="feature-index">03</span><h3>Premium meme culture</h3><p>NULX trades loud graphics for a controlled identity built for recognition across every market cycle.</p></article>
+          <article class="feature"><span class="feature-index">04</span><h3>Community-led signal</h3><p>No manufactured promises. The culture, distribution, and conviction are visible on-chain and in public.</p></article>
         </div>
       </section>
 
-      <section id="launch" class="section launch-section">
-        <div class="section-heading narrow">
-          <p class="eyebrow">Launch path</p>
-          <h2>Clean enough to trust. Simple enough to move.</h2>
-        </div>
-        <div class="timeline" aria-label="Launch steps">
-          <article>
-            <span>01</span>
-            <h3>Mint</h3>
-            <p>Publish the SPL mint, metadata, supply, and authority status before sending traffic.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Route</h3>
-            <p>Add the buy route, chart link, and liquidity notes once the pair is verifiable on Solana.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Signal</h3>
-            <p>Move social traffic into one clear narrative: null the noise, route the signal.</p>
-          </article>
+      <section id="how-to-buy" class="section launch-section">
+        <div class="section-heading narrow"><p class="eyebrow">Launch route</p><h2>Four checks between interest and entry.</h2></div>
+        <div class="timeline" aria-label="How to buy NULX">
+          <article><span>01</span><h3>Prepare a Solana wallet</h3><p>Use a wallet you control and fund it with enough SOL for the swap and network fees.</p></article>
+          <article><span>02</span><h3>Copy the official CA</h3><p>Copy the full contract only from this website or the linked official social accounts.</p></article>
+          <article><span>03</span><h3>Verify before swapping</h3><p>Confirm the name, ticker, mint address, and liquidity route before approving any transaction.</p></article>
+          <article><span>04</span><h3>Use the official route</h3><p>The buy button activates only after the verified launch link is published in the token board.</p></article>
         </div>
       </section>
 
       <section id="token" class="section token-section">
         <div class="token-copy">
-          <p class="eyebrow">Token board</p>
-          <h2>Launch details stay clean, even before the CA drops.</h2>
-          <p>
-            NULX keeps the official facts in one controlled frame: ticker, chain, supply,
-            contract, buy route, chart, and socials when they are ready.
-          </p>
+          <p class="eyebrow">Official token board</p>
+          <h2>The launch facts, without the fine print maze.</h2>
+          <p>Every value below is controlled from one configuration file. Unconfirmed fields remain visibly pending until they are ready to be verified on-chain.</p>
+          <div class="launch-note"><span>Current phase</span><strong data-config="launchPhase">MINT VERIFIED</strong><p data-config="launchNote">The official NULX mint is verified. Trading remains pending until the official buy route is published here.</p></div>
         </div>
+
         <div class="token-board">
-          <div class="board-row">
-            <span>Name</span>
-            <strong data-config="projectName">NULX</strong>
-          </div>
-          <div class="board-row">
-            <span>Ticker</span>
-            <strong data-config="ticker">$NULX</strong>
-          </div>
-          <div class="board-row">
-            <span>Chain</span>
-            <strong data-config="network">Solana</strong>
-          </div>
-          <div class="board-row">
-            <span>Supply</span>
-            <strong data-config="supply">1,000,000,000</strong>
+          <div class="board-grid">
+            <div class="board-cell"><span>Name</span><strong data-config="projectName">NULX</strong></div>
+            <div class="board-cell"><span>Ticker</span><strong data-config="ticker">$NULX</strong></div>
+            <div class="board-cell"><span>Chain</span><strong data-config="network">Solana</strong></div>
+            <div class="board-cell"><span>Total supply</span><strong data-config="supply">1,000,000,000</strong></div>
+            <div class="board-cell"><span>Decimals</span><strong data-config="decimals">6</strong></div>
+            <div class="board-cell"><span>Launch model</span><strong data-config="launchModel">To be announced</strong></div>
           </div>
           <div class="contract-box">
-            <span>Contract Address</span>
-            <code id="contract" data-config="contractAddress">PASTE_SOL_CONTRACT_ADDRESS_HERE</code>
-            <button class="icon-button" type="button" data-copy aria-label="Copy contract address" title="Copy contract address">
-              <span aria-hidden="true">Copy</span>
-            </button>
-          </div>
-          <div class="token-links" aria-label="Launch links">
-            <a class="mini-link" href="#token" data-link="twitterUrl">Twitter / X</a>
-            <a class="mini-link" href="#token" data-link="telegramUrl">Telegram</a>
-            <a class="mini-link" href="#token" data-link="buyUrl">Buy</a>
-            <a class="mini-link" href="#token" data-link="chartUrl">Chart</a>
+            <span>Official contract address</span>
+            <code id="contract" data-config="contractAddress">NOT ANNOUNCED</code>
+            <button class="copy-button" type="button" data-copy aria-label="Copy official contract address">Copy CA</button>
           </div>
           <p class="copy-status" data-copy-status aria-live="polite"></p>
+          <div class="token-links" aria-label="Official project links">
+            <a class="mini-link" href="#token" data-link="explorerUrl">Solscan</a>
+            <a class="mini-link" href="#token" data-link="twitterUrl">X / Twitter</a>
+            <a class="mini-link" href="#token" data-link="telegramUrl">Telegram</a>
+            <a class="mini-link" href="#token" data-link="buyUrl">Buy NULX</a>
+            <a class="mini-link" href="#token" data-link="chartUrl">Live chart</a>
+            <a class="mini-link" href="#token" data-link="liquidityUrl">Liquidity</a>
+          </div>
         </div>
       </section>
 
-      <section class="section proof-section">
-        <div class="metric">
-          <span>0</span>
-          <p>Fake authority claims</p>
+      <section id="safety" class="section safety-section">
+        <div class="section-heading narrow"><p class="eyebrow">On-chain verification</p><h2>Trust is a list of things you can check.</h2></div>
+        <div class="verification-grid">
+          <article><span>Mint authority</span><strong data-config="mintAuthority">Revoked</strong><p>Mint authority is revoked on the current on-chain record.</p></article>
+          <article><span>Freeze authority</span><strong data-config="freezeAuthority">Revoked</strong><p>Freeze authority is revoked on the current on-chain record.</p></article>
+          <article><span>Liquidity</span><strong data-config="liquidityStatus">Pending launch</strong><p>Pool and liquidity links appear only after they can be verified.</p></article>
+          <article><span>Trading tax</span><strong data-config="tradingTax">0% token tax</strong><p>Normal Solana network and venue fees may still apply.</p></article>
         </div>
-        <div class="metric">
-          <span>1</span>
-          <p>Official source of truth</p>
-        </div>
-        <div class="metric">
-          <span>100%</span>
-          <p>Launch-ready brand surface</p>
+      </section>
+
+      <section class="section distribution-section">
+        <div class="distribution-copy"><p class="eyebrow">Distribution</p><h2 data-config="distributionHeadline">Allocation details will be published before launch.</h2></div>
+        <div class="distribution-panel">
+          <div class="distribution-line" aria-hidden="true"><span class="distribution-ready"></span></div>
+          <div><span>Public allocation</span><strong data-config="publicAllocation">TBA</strong></div>
+          <div><span>Liquidity allocation</span><strong data-config="liquidityAllocation">TBA</strong></div>
+          <div><span>Team allocation</span><strong data-config="teamAllocation">TBA</strong></div>
         </div>
       </section>
 
       <section id="faq" class="section faq-section">
-        <div class="section-heading narrow">
-          <p class="eyebrow">Questions</p>
-          <h2>High-end look, clean expectations.</h2>
-        </div>
+        <div class="section-heading narrow"><p class="eyebrow">Questions</p><h2>Clarity before velocity.</h2></div>
         <div class="faq-list">
-          <details open>
-            <summary>Is NULX live on Solana already?</summary>
-            <p>Not yet. The site is ready for the live contract address, buy link, chart link, Twitter, and Telegram when you have them.</p>
-          </details>
-          <details>
-            <summary>Can this become the official launch page?</summary>
-            <p>Yes. Replace the empty links in the config file and it becomes a clean official entry point for the project.</p>
-          </details>
-          <details>
-            <summary>Can the meme side become louder later?</summary>
-            <p>Yes. The base brand stays premium, while campaigns, posts, stickers, and social content can carry the louder meme energy.</p>
-          </details>
+          <details open><summary>Is NULX live on Solana?</summary><p data-config="liveAnswer">The official NULX mint is live on Solana. Trading remains pending until the verified buy route is published here.</p></details>
+          <details><summary>Where should I verify the contract?</summary><p>Use the full mint address on this page and compare it with the linked Solscan record and official social posts.</p></details>
+          <details><summary>Will an admin contact me first?</summary><p>No. NULX admins will never ask for a seed phrase, private key, remote access, or a direct transfer.</p></details>
+          <details><summary>Is NULX an investment promise?</summary><p>No. NULX is a high-risk meme token. Nothing on this website is financial advice or a guarantee of value.</p></details>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div>
-        <strong data-config="brandLabel">NULX</strong>
-        <p>Concept brand site. Not financial advice. Verify every contract and venue before trading.</p>
+        <div class="footer-brand"><img src="nulx-logo.png" alt="" aria-hidden="true" /><strong data-config="brandLabel">NULX</strong></div>
+        <p>Official project information only. Verify every contract and venue before trading.</p>
+        <small>Cryptocurrency and meme tokens are volatile and may lose all value. Not financial advice.</small>
       </div>
-      <div class="footer-links">
-        <a href="#top">Top</a>
-        <a href="#token">Contract</a>
-        <a href="#faq">FAQ</a>
-      </div>
+      <div class="footer-links"><a href="#top">Top</a><a href="#token">Contract</a><a href="#safety">Verify</a><a href="#faq">FAQ</a></div>
     </footer>
+
+    <div class="mobile-action-bar" aria-label="Mobile launch actions">
+      <button type="button" data-copy>Copy CA</button>
+      <a href="#token" data-link="buyUrl" data-disabled-link>Buy after launch</a>
+    </div>
 
     <script src="site-config.js"></script>
     <script src="script.js"></script>
